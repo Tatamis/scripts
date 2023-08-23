@@ -1,0 +1,4 @@
+@echo off 
+nltest /dbflag:0x2080ffff
+timeout /t 300 /nobreak
+nltest /dbflag:0x0
