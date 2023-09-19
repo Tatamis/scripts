@@ -1,0 +1,20 @@
+# Start transcript
+Start-Transcript -Path path -Append
+
+# Import the data from CSV
+$mails = Import-Csv "path"
+
+# Loop through each row in the CSV
+foreach ($mail in $mails) {
+    $email = $mail.mails
+
+    # Add the contact to the distribution group
+    if ($email) {
+        Add-DistributionGroupMember -Identity "mail" -Member $email
+    } else {
+        Write-Host "ERROR" -ForegroundColor Red
+    }
+}
+
+# Stop transcript
+Stop-Transcript
